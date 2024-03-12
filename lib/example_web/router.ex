@@ -18,6 +18,15 @@ defmodule ExampleWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live_session :one do
+      live("/one", OneLive, :index)
+      live("/three", ThreeLive, :index)
+    end
+
+    live_session :two do
+      live("/two", TwoLive, :index)
+    end
   end
 
   # Other scopes may use custom stacks.
